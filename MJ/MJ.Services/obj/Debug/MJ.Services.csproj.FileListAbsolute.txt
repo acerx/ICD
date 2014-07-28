@@ -1,0 +1,5 @@
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Services\bin\Debug\MJ.Services.dll
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Services\bin\Debug\MJ.Services.pdb
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Services\obj\Debug\MJ.Services.csprojResolveAssemblyReference.cache
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Services\obj\Debug\MJ.Services.dll
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Services\obj\Debug\MJ.Services.pdb
