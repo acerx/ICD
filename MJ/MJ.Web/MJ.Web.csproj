@@ -160,6 +160,7 @@
     <Content Include="img\indicator1.png" />
     <Content Include="img\loader.gif" />
     <Content Include="img\logo.gif" />
+    <Content Include="img\logo.png" />
     <Content Include="img\magnifier.png" />
     <Content Include="img\marker-1.png" />
     <Content Include="img\marker.png" />
