@@ -139,6 +139,7 @@
     <Content Include="css\ie.css" />
     <Content Include="css\kwicks-slider.css" />
     <Content Include="css\responsive.css" />
+    <Content Include="css\site.css" />
     <Content Include="css\style.css" />
     <Content Include="css\touchTouch.css" />
     <Content Include="favicon.ico" />

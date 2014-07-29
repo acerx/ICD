@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Dorsa);
+﻿@import url(http://fonts.googleapis.com/css?family=Dorsa);
 @charset "utf-8";
 /* CSS Document */
 a[href^="tel:"] {
@@ -266,7 +266,12 @@ p {
   padding: 0 0 40px;
 }
 .bg-content {
-  background: url(../img/bg-content.jpg) 50% 50%;
+  /*background: url(../img/bg-content.jpg) 50% 50%;*/
+      background: url('/img/bg-content.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .block-slogan {
   overflow: hidden;
