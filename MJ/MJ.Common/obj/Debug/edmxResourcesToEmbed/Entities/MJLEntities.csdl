@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MJLEntities.Context" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SystemUser">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="userId" Type="Guid" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="passwordSalt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateCreated" Type="DateTime" Precision="3" />
+    <Property Name="dateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="dateDeleted" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="mjldbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SystemUsers" EntityType="Self.SystemUser" />
+  </EntityContainer>
+</Schema>

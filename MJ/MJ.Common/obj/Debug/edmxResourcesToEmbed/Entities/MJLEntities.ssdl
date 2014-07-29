@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MJLEntities.Context.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SystemUsers">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="userId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="passwordSalt" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="dateCreated" Type="datetime" />
+    <Property Name="dateUpdated" Type="datetime" />
+    <Property Name="dateDeleted" Type="datetime" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="MJLEntitiesContextStoreContainer">
+    <EntitySet Name="SystemUsers" EntityType="Self.SystemUsers" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
