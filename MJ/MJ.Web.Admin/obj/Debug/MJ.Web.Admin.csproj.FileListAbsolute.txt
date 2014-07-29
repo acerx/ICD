@@ -5,6 +5,7 @@ E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\Antlr3.Runtime.dll
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\EntityFramework.dll
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\EntityFramework.SqlServer.dll
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\Microsoft.Web.Infrastructure.dll
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\MJ.Common.dll
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\Newtonsoft.Json.dll
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\SimpleCrypto.dll
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\System.Web.Helpers.dll
@@ -18,6 +19,7 @@ E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\WebGrease.dll
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\Antlr3.Runtime.pdb
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\EntityFramework.xml
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\EntityFramework.SqlServer.xml
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\MJ.Common.pdb
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\Newtonsoft.Json.xml
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\System.Web.Helpers.xml
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\System.Web.Mvc.xml
@@ -26,8 +28,6 @@ E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\System.Web.Razor.xml
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\System.Web.WebPages.xml
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\System.Web.WebPages.Deployment.xml
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\System.Web.WebPages.Razor.xml
-E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\obj\Debug\MJ.Web.Admin.csprojResolveAssemblyReference.cache
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\obj\Debug\MJ.Web.Admin.dll
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\obj\Debug\MJ.Web.Admin.pdb
-E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\MJ.Common.dll
-E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\bin\MJ.Common.pdb
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Web.Admin\obj\Debug\MJ.Web.Admin.csprojResolveAssemblyReference.cache
