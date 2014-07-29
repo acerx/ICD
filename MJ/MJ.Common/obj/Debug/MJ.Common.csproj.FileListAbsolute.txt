@@ -3,3 +3,11 @@ E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\bin\Debug\MJ.Common.pdb
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\obj\Debug\MJ.Common.csprojResolveAssemblyReference.cache
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\obj\Debug\MJ.Common.dll
 E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\obj\Debug\MJ.Common.pdb
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\bin\Debug\AutoMapper.Net4.dll
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\bin\Debug\MJ.Common.dll.config
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\bin\Debug\AutoMapper.dll
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\bin\Debug\EntityFramework.dll
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\bin\Debug\EntityFramework.SqlServer.dll
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\bin\Debug\AutoMapper.xml
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\bin\Debug\EntityFramework.xml
+E:\5. Progs\6. Repo\ICD\MJ\MJ.Common\bin\Debug\EntityFramework.SqlServer.xml
