@@ -26,5 +26,6 @@ namespace MJ.Web.Controllers
 
             return View();
         }
+
     }
 }
