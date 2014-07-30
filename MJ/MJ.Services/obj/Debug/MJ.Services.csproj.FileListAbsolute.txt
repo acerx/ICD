@@ -7,3 +7,12 @@ D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\MJ.Services.dll
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\MJ.Services.pdb
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\obj\Debug\MJ.Services.dll
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\obj\Debug\MJ.Services.pdb
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\MJ.Common.dll
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\EntityFramework.dll
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\MJ.Common.pdb
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\EntityFramework.xml
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\obj\Debug\MJ.Services.csprojResolveAssemblyReference.cache
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\MJ.Services.dll.config
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\EntityFramework.SqlServer.dll
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\SimpleCrypto.dll
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\EntityFramework.SqlServer.xml

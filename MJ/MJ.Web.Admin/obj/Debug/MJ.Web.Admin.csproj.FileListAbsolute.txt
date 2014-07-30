@@ -64,3 +64,5 @@ D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\bin\System.Web.WebPages.Razor.xml
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\obj\Debug\MJ.Web.Admin.csprojResolveAssemblyReference.cache
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\obj\Debug\MJ.Web.Admin.dll
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\obj\Debug\MJ.Web.Admin.pdb
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\bin\MJ.Services.dll
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\bin\MJ.Services.pdb
