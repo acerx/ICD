@@ -19,12 +19,7 @@ namespace MJ.Web.Admin.Controllers
         private IUserService _userService;
         public IUserService UserService
         {
-            get
-            {
-                if (_userService == null)
-                    _userService = new UserService();
-                return _userService;
-            }
+            get { return _userService ?? (_userService = new UserService()); }
         }
 
         #endregion
@@ -55,21 +50,18 @@ namespace MJ.Web.Admin.Controllers
         {
             if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
             {
-                var result = "Failed";
+                const string result = "Failed";
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
-            else
+
+            UserDto userDto = BuildUserDto(username, password);
+            bool checker = UserService.AddUser(userDto);
+
+            if (checker)
             {
-                UserDto userDto = BuildUserDto(username, password);
-                bool checker = UserService.AddUser(userDto);
-
-                if (checker)
-                {
-                    TempData["Message"] = "Successfully Created new account. Please login.";
-                    var result = "Success";
-                    return Json(result, JsonRequestBehavior.AllowGet);
-                }
-
+                TempData["Message"] = "Successfully Created new account. Please login.";
+                const string result = "Success";
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
 
             return Json(new { success = true });
@@ -79,7 +71,7 @@ namespace MJ.Web.Admin.Controllers
 
         private UserDto BuildUserDto(string username, string password)
         {
-            var defaultUserType = "Admin";
+            const string defaultUserType = "Admin";
             var userTypedId = StaticService.GetUserTypeId(defaultUserType);
 
             var userDto = new UserDto
