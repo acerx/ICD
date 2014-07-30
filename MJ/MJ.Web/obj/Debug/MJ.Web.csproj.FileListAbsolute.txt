@@ -57,6 +57,5 @@ D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web\bin\System.Web.Razor.xml
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web\bin\System.Web.WebPages.xml
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web\bin\System.Web.WebPages.Deployment.xml
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web\bin\System.Web.WebPages.Razor.xml
-D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web\obj\Debug\MJ.Web.csprojResolveAssemblyReference.cache
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web\obj\Debug\MJ.Web.dll
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web\obj\Debug\MJ.Web.pdb
