@@ -54,7 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\CommentsDTO.cs" />
+    <Compile Include="DTO\PostDetailsDTO.cs" />
+    <Compile Include="DTO\PostsDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\UserTypeDTO.cs" />
     <Compile Include="Entities\Comment.cs">
       <DependentUpon>MJEntities.tt</DependentUpon>
     </Compile>
