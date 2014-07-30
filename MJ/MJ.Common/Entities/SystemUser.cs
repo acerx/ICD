@@ -14,13 +14,25 @@ namespace MJ.Common.Entities
     
     public partial class SystemUser
     {
+        public SystemUser()
+        {
+            this.Comments = new HashSet<Comment>();
+            this.Posts = new HashSet<Post>();
+        }
+    
         public System.Guid userId { get; set; }
         public string email { get; set; }
         public string password { get; set; }
-        public string passwordSalt { get; set; }
-        public Nullable<System.DateTime> dateCreated { get; set; }
-        public Nullable<System.DateTime> dateUpdated { get; set; }
-        public Nullable<System.DateTime> dateDeleted { get; set; }
-        public Nullable<bool> isActive { get; set; }
+        public string pwdSalt { get; set; }
+        public System.Guid userTypeId { get; set; }
+        public bool isActive { get; set; }
+        public bool needsPasswordReset { get; set; }
+        public System.DateTime datetimeCreated { get; set; }
+        public Nullable<System.DateTime> datetimeUpdated { get; set; }
+        public Nullable<System.DateTime> datetimeDeleted { get; set; }
+    
+        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
+        public virtual UserType UserType { get; set; }
     }
 }

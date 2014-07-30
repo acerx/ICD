@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MJContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="commentId" />
+          </Key>
+          <Property Name="commentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="commentText" Type="nvarchar" MaxLength="500" />
+          <Property Name="commenterId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="commentDateTime" Type="datetime" Nullable="false" />
+          <Property Name="commentDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostDetails">
+          <Key>
+            <PropertyRef Name="postDetailId" />
+          </Key>
+          <Property Name="postDetailId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="postId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="postText" Type="nvarchar" MaxLength="500" />
+          <Property Name="postImage" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="postId" />
+          </Key>
+          <Property Name="postId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="postTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="postDateTime" Type="datetime" Nullable="false" />
+          <Property Name="postDeleted" Type="bit" Nullable="false" />
+          <Property Name="userId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemUsers">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="pwdSalt" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="userTypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+          <Property Name="needsPasswordReset" Type="bit" Nullable="false" />
+          <Property Name="datetimeCreated" Type="datetime" Nullable="false" />
+          <Property Name="datetimeUpdated" Type="datetime" />
+          <Property Name="datetimeDeleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="userTypeId" />
+          </Key>
+          <Property Name="userTypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="userTyped" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Comments__commen__6A30C649">
+          <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUsers">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="commenterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PostDetai__postI__66603565">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="PostDetails" Type="Self.PostDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="postId" />
+            </Principal>
+            <Dependent Role="PostDetails">
+              <PropertyRef Name="postId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posts__userId__628FA481">
+          <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="1" />
+          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUsers">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SystemUse__userT__5BE2A6F2">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="userTypeId" />
+            </Principal>
+            <Dependent Role="SystemUsers">
+              <PropertyRef Name="userTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MJContextStoreContainer">
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostDetails" EntityType="Self.PostDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemUsers" EntityType="Self.SystemUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Comments__commen__6A30C649" Association="Self.FK__Comments__commen__6A30C649">
+            <End Role="SystemUsers" EntitySet="SystemUsers" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PostDetai__postI__66603565" Association="Self.FK__PostDetai__postI__66603565">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="PostDetails" EntitySet="PostDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posts__userId__628FA481" Association="Self.FK__Posts__userId__628FA481">
+            <End Role="SystemUsers" EntitySet="SystemUsers" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SystemUse__userT__5BE2A6F2" Association="Self.FK__SystemUse__userT__5BE2A6F2">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="SystemUsers" EntitySet="SystemUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MJContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="commentId" />
+          </Key>
+          <Property Name="commentId" Type="Guid" Nullable="false" />
+          <Property Name="commentText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="commenterId" Type="Guid" Nullable="false" />
+          <Property Name="commentDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="commentDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SystemUser" Relationship="Self.FK__Comments__commen__6A30C649" FromRole="Comments" ToRole="SystemUsers" />
+        </EntityType>
+        <EntityType Name="PostDetail">
+          <Key>
+            <PropertyRef Name="postDetailId" />
+          </Key>
+          <Property Name="postDetailId" Type="Guid" Nullable="false" />
+          <Property Name="postId" Type="Guid" Nullable="false" />
+          <Property Name="postText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="postImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Post" Relationship="Self.FK__PostDetai__postI__66603565" FromRole="PostDetails" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="postId" />
+          </Key>
+          <Property Name="postId" Type="Guid" Nullable="false" />
+          <Property Name="postTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="postDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="postDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="userId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="PostDetails" Relationship="Self.FK__PostDetai__postI__66603565" FromRole="Posts" ToRole="PostDetails" />
+          <NavigationProperty Name="SystemUser" Relationship="Self.FK__Posts__userId__628FA481" FromRole="Posts" ToRole="SystemUsers" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Guid" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pwdSalt" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userTypeId" Type="Guid" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <Property Name="needsPasswordReset" Type="Boolean" Nullable="false" />
+          <Property Name="datetimeCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="datetimeUpdated" Type="DateTime" Precision="3" />
+          <Property Name="datetimeDeleted" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__commen__6A30C649" FromRole="SystemUsers" ToRole="Comments" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__userId__628FA481" FromRole="SystemUsers" ToRole="Posts" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK__SystemUse__userT__5BE2A6F2" FromRole="SystemUsers" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="userTypeId" />
+          </Key>
+          <Property Name="userTypeId" Type="Guid" Nullable="false" />
+          <Property Name="userTyped" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SystemUsers" Relationship="Self.FK__SystemUse__userT__5BE2A6F2" FromRole="UserType" ToRole="SystemUsers" />
+        </EntityType>
+        <Association Name="FK__Comments__commen__6A30C649">
+          <End Role="SystemUsers" Type="Self.SystemUser" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUsers">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="commenterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PostDetai__postI__66603565">
+          <End Role="Posts" Type="Self.Post" Multiplicity="1" />
+          <End Role="PostDetails" Type="Self.PostDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="postId" />
+            </Principal>
+            <Dependent Role="PostDetails">
+              <PropertyRef Name="postId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posts__userId__628FA481">
+          <End Role="SystemUsers" Type="Self.SystemUser" Multiplicity="1" />
+          <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUsers">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SystemUse__userT__5BE2A6F2">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="SystemUsers" Type="Self.SystemUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="userTypeId" />
+            </Principal>
+            <Dependent Role="SystemUsers">
+              <PropertyRef Name="userTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MJEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="PostDetails" EntityType="Self.PostDetail" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="SystemUsers" EntityType="Self.SystemUser" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <AssociationSet Name="FK__Comments__commen__6A30C649" Association="Self.FK__Comments__commen__6A30C649">
+            <End Role="SystemUsers" EntitySet="SystemUsers" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PostDetai__postI__66603565" Association="Self.FK__PostDetai__postI__66603565">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="PostDetails" EntitySet="PostDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posts__userId__628FA481" Association="Self.FK__Posts__userId__628FA481">
+            <End Role="SystemUsers" EntitySet="SystemUsers" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SystemUse__userT__5BE2A6F2" Association="Self.FK__SystemUse__userT__5BE2A6F2">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="SystemUsers" EntitySet="SystemUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MJContextStoreContainer" CdmEntityContainer="MJEntities">
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="MJContext.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="commentId" ColumnName="commentId" />
+                <ScalarProperty Name="commentText" ColumnName="commentText" />
+                <ScalarProperty Name="commenterId" ColumnName="commenterId" />
+                <ScalarProperty Name="commentDateTime" ColumnName="commentDateTime" />
+                <ScalarProperty Name="commentDeleted" ColumnName="commentDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostDetails">
+            <EntityTypeMapping TypeName="MJContext.PostDetail">
+              <MappingFragment StoreEntitySet="PostDetails">
+                <ScalarProperty Name="postDetailId" ColumnName="postDetailId" />
+                <ScalarProperty Name="postId" ColumnName="postId" />
+                <ScalarProperty Name="postText" ColumnName="postText" />
+                <ScalarProperty Name="postImage" ColumnName="postImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="MJContext.Post">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="postId" ColumnName="postId" />
+                <ScalarProperty Name="postTitle" ColumnName="postTitle" />
+                <ScalarProperty Name="postDateTime" ColumnName="postDateTime" />
+                <ScalarProperty Name="postDeleted" ColumnName="postDeleted" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUsers">
+            <EntityTypeMapping TypeName="MJContext.SystemUser">
+              <MappingFragment StoreEntitySet="SystemUsers">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="pwdSalt" ColumnName="pwdSalt" />
+                <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="needsPasswordReset" ColumnName="needsPasswordReset" />
+                <ScalarProperty Name="datetimeCreated" ColumnName="datetimeCreated" />
+                <ScalarProperty Name="datetimeUpdated" ColumnName="datetimeUpdated" />
+                <ScalarProperty Name="datetimeDeleted" ColumnName="datetimeDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="MJContext.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+                <ScalarProperty Name="userTyped" ColumnName="userTyped" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MJContextStoreContainer" CdmEntityContainer="MJEntities">
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="MJContext.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="commentId" ColumnName="commentId" />
+          <ScalarProperty Name="commentText" ColumnName="commentText" />
+          <ScalarProperty Name="commenterId" ColumnName="commenterId" />
+          <ScalarProperty Name="commentDateTime" ColumnName="commentDateTime" />
+          <ScalarProperty Name="commentDeleted" ColumnName="commentDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostDetails">
+      <EntityTypeMapping TypeName="MJContext.PostDetail">
+        <MappingFragment StoreEntitySet="PostDetails">
+          <ScalarProperty Name="postDetailId" ColumnName="postDetailId" />
+          <ScalarProperty Name="postId" ColumnName="postId" />
+          <ScalarProperty Name="postText" ColumnName="postText" />
+          <ScalarProperty Name="postImage" ColumnName="postImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="MJContext.Post">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="postId" ColumnName="postId" />
+          <ScalarProperty Name="postTitle" ColumnName="postTitle" />
+          <ScalarProperty Name="postDateTime" ColumnName="postDateTime" />
+          <ScalarProperty Name="postDeleted" ColumnName="postDeleted" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemUsers">
+      <EntityTypeMapping TypeName="MJContext.SystemUser">
+        <MappingFragment StoreEntitySet="SystemUsers">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="pwdSalt" ColumnName="pwdSalt" />
+          <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="needsPasswordReset" ColumnName="needsPasswordReset" />
+          <ScalarProperty Name="datetimeCreated" ColumnName="datetimeCreated" />
+          <ScalarProperty Name="datetimeUpdated" ColumnName="datetimeUpdated" />
+          <ScalarProperty Name="datetimeDeleted" ColumnName="datetimeDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="MJContext.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+          <ScalarProperty Name="userTyped" ColumnName="userTyped" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

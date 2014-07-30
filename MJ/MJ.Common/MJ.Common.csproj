@@ -55,45 +55,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\UserDTO.cs" />
-    <Compile Include="Entities\MJLEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MJLEntities.Context.tt</DependentUpon>
+    <Compile Include="Entities\Comment.cs">
+      <DependentUpon>MJEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\MJLEntities.cs">
+    <Compile Include="Entities\MJEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MJLEntities.tt</DependentUpon>
+      <DependentUpon>MJEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\MJLEntities.Designer.cs">
+    <Compile Include="Entities\MJEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MJLEntities.edmx</DependentUpon>
+      <DependentUpon>MJEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MJEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MJEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Post.cs">
+      <DependentUpon>MJEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PostDetail.cs">
+      <DependentUpon>MJEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\SystemUser.cs">
-      <DependentUpon>MJLEntities.tt</DependentUpon>
+      <DependentUpon>MJEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserType.cs">
+      <DependentUpon>MJEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Entities\MJLEntities.edmx">
+    <EntityDeploy Include="Entities\MJEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MJLEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>MJEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entities\MJLEntities.Context.tt">
+    <None Include="Entities\MJEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MJLEntities.edmx</DependentUpon>
-      <LastGenOutput>MJLEntities.Context.cs</LastGenOutput>
+      <DependentUpon>MJEntities.edmx</DependentUpon>
+      <LastGenOutput>MJEntities.Context.cs</LastGenOutput>
     </None>
-    <None Include="Entities\MJLEntities.edmx.diagram">
-      <DependentUpon>MJLEntities.edmx</DependentUpon>
+    <None Include="Entities\MJEntities.edmx.diagram">
+      <DependentUpon>MJEntities.edmx</DependentUpon>
     </None>
-    <None Include="Entities\MJLEntities.tt">
+    <None Include="Entities\MJEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MJLEntities.edmx</DependentUpon>
-      <LastGenOutput>MJLEntities.cs</LastGenOutput>
+      <DependentUpon>MJEntities.edmx</DependentUpon>
+      <LastGenOutput>MJEntities.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

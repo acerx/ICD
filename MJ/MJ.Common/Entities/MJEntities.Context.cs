@@ -13,10 +13,10 @@ namespace MJ.Common.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class mjldbEntities : DbContext
+    public partial class MJEntities : DbContext
     {
-        public mjldbEntities()
-            : base("name=mjldbEntities")
+        public MJEntities()
+            : base("name=MJEntities")
         {
         }
     
@@ -25,6 +25,10 @@ namespace MJ.Common.Entities
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<PostDetail> PostDetails { get; set; }
+        public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<SystemUser> SystemUsers { get; set; }
+        public virtual DbSet<UserType> UserTypes { get; set; }
     }
 }
