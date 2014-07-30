@@ -46,12 +46,20 @@ namespace MJ.Web.Admin.Controllers
         }
 
         // POST USING AJAX
-        public ActionResult Register(string username, string password)
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(string username, string password, string confirmpassword)
         {
-            if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                const string result = "Failed";
-                return Json(result, JsonRequestBehavior.AllowGet);
+                var result = "Failed";
+                return Json(result, JsonRequestBehavior.AllowGet);              
+            }
+
+            if (password != confirmpassword)
+            {
+                var result = "SamePassword";
+                    return Json(result, JsonRequestBehavior.AllowGet);
             }
 
             UserDto userDto = BuildUserDto(username, password);
