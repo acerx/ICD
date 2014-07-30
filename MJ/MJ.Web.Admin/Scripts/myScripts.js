@@ -9,12 +9,19 @@
         //$('#loadingCol').show();
         $.ajax({
             type: "POST",
-            url: '../User/Register',
+            url: '../Home/Register',
             data: { username: usernameStr, password: userpasswordStr },
-            dataType: "html",
-            success: function (data) {
-                if (data) {
-                    //$('#searResultsContainer').html(data);
+            dataType: "json",
+            success: function (result) {
+                if (result == "Success") {
+                    $('#closeBtn').click();
+                    location.reload();
+                } else {
+                    $('.modalTitle').val("Specialty not deleted.");
+                    $('#modalMessage').html("Failed in creating new account. Please try again.");
+                    $('#closeBtn').html("Ok");
+                    $('#registerBtn').hide();
+                    $('#conData').hide();
                 }
                 //$('#loadingCol').hide();
                 //$('#defaultResultTable').hide();
@@ -45,3 +52,7 @@
 //        }
 //    });
 //}
+
+function refr() {
+    location.reload();
+}

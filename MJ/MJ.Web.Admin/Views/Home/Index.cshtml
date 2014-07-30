@@ -16,7 +16,7 @@
                         Login
                     </div>
                     <div style="float: right">
-                        <a style="cursor: pointer" data-toggle="modal" data-target="#myModal">Create New Account</a>
+                        <a id="register()" style="cursor: pointer" data-toggle="modal" data-target="#myModal">Create New Account</a>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -25,8 +25,9 @@
                     {
                         <div>
                             
-                            <div class="myTextRed">
+                            <div id="errMessage" class="myTextRed form-group">
                                 @Html.ValidationSummary(true, "Login failed. Check your login details.")
+                                @ViewBag.result
                             </div>
                             
                             @Html.ValidationMessageFor(u => u.Username)
@@ -73,11 +74,13 @@
             </div>
             <div class="modal-body">
                 
-                <div class="form-group">
+                <div id="modalMessage"></div>
+
+                <div id="conData" class="form-group">
                     <div class="myTextRed">
                         
                     </div>
-
+                    
                     <div style="margin-bottom:25px" class="input-group">
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-user"></i>
@@ -106,8 +109,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button id="registerBtn" type="button" class="btn btn-primary">Submit</button>
+                <button onclick="refr()" id="closeBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button onclick="createAcc()" id="registerBtn" type="button" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>
