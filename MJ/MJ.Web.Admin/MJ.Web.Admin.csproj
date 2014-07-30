@@ -179,6 +179,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Views\Shared\_Register.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

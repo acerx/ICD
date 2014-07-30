@@ -25,6 +25,8 @@ namespace MJ.Web.Admin.Models
 
         public string Password { get; set; }
 
+        public string ConfirmPassword { get; set; }
+
         public string PwdSalt { get; set; }
 
         public Guid UserTypeId { get; set; }

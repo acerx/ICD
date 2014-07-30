@@ -16,7 +16,8 @@
                         Login
                     </div>
                     <div style="float: right">
-                        <a id="register()" style="cursor: pointer" data-toggle="modal" data-target="#myModal">Create New Account</a>
+                        @*<a id="register()" style="cursor: pointer" data-toggle="modal" data-target="#myModal">Create New Account</a>*@
+                        <a onclick="register()" style="cursor: pointer">Create New Account</a>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -25,9 +26,10 @@
                     {
                         <div>
                             
-                            <div id="errMessage" class="myTextRed form-group">
+                            <div id="errMessage" class="myTextRed form-group" style="font-weight: bold; font-size: small">
                                 @Html.ValidationSummary(true, "Login failed. Check your login details.")
                                 @ViewBag.result
+                                @ViewBag.Error
                             </div>
                             
                             @Html.ValidationMessageFor(u => u.Username)
@@ -65,7 +67,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+@*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header" style="background-color: lightcyan">
@@ -114,4 +116,8 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
+
+@*<div id="newUser" class="modal fade">
+    @Html.Partial("_Register")
+</div>*@

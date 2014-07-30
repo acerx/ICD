@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using MJ.Common.DTO;
 using MJ.Services.IServices;
 using MJ.Services;
+using MJ.Web.Admin.Models;
 
 namespace MJ.Web.Admin.Controllers
 {
@@ -28,6 +29,7 @@ namespace MJ.Web.Admin.Controllers
         {
 
             ViewBag.result = TempData["Message"] as string;
+            ViewBag.Error = TempData["Error"] as string;
             return View();
         }
 
@@ -73,6 +75,35 @@ namespace MJ.Web.Admin.Controllers
             }
 
             return Json(new { success = true });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserRegister(UserRegisterModel user)
+        {
+            if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
+            {
+                TempData["Error"] = "Register failed. Please fill in values.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (user.Password != user.ConfirmPassword)
+            {
+                TempData["Error"] = "Passwords does not match. Please try again.";
+                return RedirectToAction("Index", "Home");
+            }
+
+
+            UserDto userDto = BuildUserDto(user.Email, user.Password);
+            bool checker = UserService.AddUser(userDto);
+
+            if (checker)
+            {
+                TempData["Message"] = "Successfully Created new account. Please login.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
         #region PRIVATE
