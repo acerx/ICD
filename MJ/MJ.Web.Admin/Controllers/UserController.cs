@@ -14,5 +14,12 @@ namespace MJ.Web.Admin.Controllers
         {
             return View();
         }
+
+        // POST USING AJAX
+        public ActionResult Register(string username, string password)
+        {
+            return Json(new { success = true });
+        }
+
 	}
 }

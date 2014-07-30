@@ -25,15 +25,19 @@ namespace MJ.Web.Admin.Models
 
         public string Password { get; set; }
 
-        public string PasswordSalt { get; set; }
+        public string PwdSalt { get; set; }
 
-        public DateTime DateCreated { get; set; }
-
-        public DateTime DateUpdated { get; set; }
-
-        public DateTime DateDeleted { get; set; }
+        public Guid UserTypeId { get; set; }
 
         public bool IsActive { get; set; }
+
+        public bool NeedsPasswordReset { get; set; }
+
+        public DateTime DateTimeCreated { get; set; }
+
+        public DateTime DateTimeUpdated { get; set; }
+
+        public DateTime DateTimeDeleted { get; set; }
 
     }
 

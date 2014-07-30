@@ -35,7 +35,7 @@
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span>
                                 <input id="login-username" type="text" class="form-control uni-plceholdr" 
-                                       name="username" placeholder="username" style="max-width: 100%" />
+                                       name="username" placeholder="username / password" style="max-width: 100%" />
                             </div>
                             
                             @Html.ValidationMessageFor(u => u.Password)
@@ -73,34 +73,41 @@
             </div>
             <div class="modal-body">
                 
-                <div>
+                <div class="form-group">
                     <div class="myTextRed">
-                        @Html.ValidationSummary(true, "Login failed. Check your login details.")
+                        
                     </div>
 
-                    @Html.ValidationMessageFor(u => u.Username)
                     <div style="margin-bottom:25px" class="input-group">
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-user"></i>
                         </span>
-                        <input id="login-username" type="text" class="form-control uni-plceholdr"
-                               name="username" placeholder="username" style="max-width: 100%" />
+                        <input id="usernameTxt" type="text" class="form-control uni-plceholdr"
+                               placeholder="username or email" style="max-width: 100%" />
                     </div>
 
-                    @Html.ValidationMessageFor(u => u.Password)
+                    <div style="margin-bottom:25px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-log-in"></i>
+                        </span>
+                        <input id="passwordTxt" type="password" class="form-control uni-plceholdr"
+                               placeholder="password" style="max-width: 100%" />
+                    </div>
+                    
                     <div style="margin-bottom:25px" class="input-group">
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-log-in"></i>
                         </span>
                         <input id="login-password" type="password" class="form-control uni-plceholdr"
-                               name="password" placeholder="password" style="max-width: 100%" />
+                               placeholder="confirm password" style="max-width: 100%" />
                     </div>
+  
                 </div>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button id="registerBtn" type="button" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>
