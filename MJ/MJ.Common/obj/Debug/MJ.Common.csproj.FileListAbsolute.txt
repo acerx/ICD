@@ -23,3 +23,4 @@ D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Common\bin\Debug\EntityFramework.xml
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Common\bin\Debug\EntityFramework.SqlServer.xml
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Common\obj\Debug\MJ.Common.dll
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Common\obj\Debug\MJ.Common.pdb
+D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Common\obj\Debug\MJ.Common.csprojResolveAssemblyReference.cache
