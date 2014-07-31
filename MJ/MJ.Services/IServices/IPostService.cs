@@ -12,5 +12,7 @@ namespace MJ.Services.IServices
 
         bool AddPost(PostsDto postsDto);
 
+        bool CheckPostTitle(string postTitle);
+
     }
 }

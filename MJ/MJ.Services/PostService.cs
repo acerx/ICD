@@ -40,6 +40,33 @@ namespace MJ.Services
             return result;
         }
 
+        public bool CheckPostTitle(string postTitle)
+        {
+            bool result = false;
+
+            try
+            {
+                using (var db = new MJEntities())
+                {
+                    var query = (from a in db.Posts
+                                 where a.postTitle == postTitle
+                                 select a).FirstOrDefault();
+
+                    if (query != null)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                throw new Exception(ex.Message);
+            }
+
+            return result;
+        }
+
         #region FILL
 
         private Post FillNewPostEntity(Post newPost, PostsDto postsDto)

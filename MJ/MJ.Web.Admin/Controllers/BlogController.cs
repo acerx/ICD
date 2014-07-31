@@ -42,6 +42,12 @@ namespace MJ.Web.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(PostsModel posts, HttpPostedFileBase file)
         {
+            if (PostService.CheckPostTitle(posts.PostTitle))
+            {
+                TempData["Message"] = "Duplicate title found in record. Please try again.";
+                return RedirectToAction("Index", "Blog");
+            }
+
             if (!string.IsNullOrEmpty(posts.PostTitle) && !string.IsNullOrEmpty(posts.PostDetails.PostText))
             {
                 PostsDto postsDto = BuildPostDto(posts, file);
