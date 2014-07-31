@@ -49,6 +49,11 @@ namespace MJ.Web.Admin.Controllers
 
                 return RedirectToAction("Index", "Blog");
             }
+            else
+            {
+                TempData["Message"] = "No such user found. Please try again.";
+                return RedirectToAction("Index", "Blog");
+            }
 
             return View(user);
         }
