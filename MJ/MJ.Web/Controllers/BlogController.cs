@@ -3,11 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MJ.Common.DTO;
+using MJ.Services;
+using MJ.Services.IServices;
+using PagedList;
+using MJ.Web.Models;
 
 namespace MJ.Web.Controllers
 {
     public class BlogController : Controller
     {
+        #region SERVICES
+
+        private IReadPostService _reaadPostService;
+
+        public IReadPostService ReadPostService
+        {
+            get { return _reaadPostService ?? (_reaadPostService = new ReadPostService()); }
+        }
+
+        private IUserService _userService;
+        public IUserService UserService
+        {
+            get { return _userService ?? (_userService = new UserService()); }
+        }
+
+        #endregion
+
         //
         // GET: /Blog/
 
@@ -16,25 +38,37 @@ namespace MJ.Web.Controllers
             return View();
         }
 
+        public ActionResult Blogs(Post post)
+        {
+            IEnumerable<PostsDto> posts = ReadPostService.GetAllPosts();
+
+            var model = new Post();
+
+            var pageIndex = post.Page ?? 1;
+
+            model.PostList = FillInPostList(posts, pageIndex, 5);
+
+            return PartialView(model);
+        }
+
         #region PRIVATE
 
-        public class LayoutInjecterAttribute : ActionFilterAttribute
+        private IPagedList<PostsModel> FillInPostList(IEnumerable<PostsDto> posts, int pageIndex, int p)
         {
-            private readonly string _masterName;
-            public LayoutInjecterAttribute(string masterName)
+            var postList = new List<PostsModel>();
+
+            foreach (var item in posts)
             {
-                _masterName = masterName;
+                var post = new PostsModel();
+
+                post.PostTitle = item.PostTitle;
+                //post.PostDetails.PostText = item.PostDetailsDto.PostText;
+                //post.PostDetails.PostImage = item.PostDetailsDto.PostImage;
+
+                postList.Add(post);
             }
 
-            public override void OnActionExecuted(ActionExecutedContext filterContext)
-            {
-                base.OnActionExecuted(filterContext);
-                var result = filterContext.Result as ViewResult;
-                if (result != null)
-                {
-                    result.MasterName = _masterName;
-                }
-            }
+            return postList.ToPagedList(pageIndex, p);
         }
 
         #endregion
