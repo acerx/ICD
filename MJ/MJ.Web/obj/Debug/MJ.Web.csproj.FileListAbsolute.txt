@@ -57,7 +57,6 @@ E:\10. NewProgs\mjl\ICD\MJ\MJ.Web\bin\System.Web.Razor.xml
 E:\10. NewProgs\mjl\ICD\MJ\MJ.Web\bin\System.Web.WebPages.xml
 E:\10. NewProgs\mjl\ICD\MJ\MJ.Web\bin\System.Web.WebPages.Deployment.xml
 E:\10. NewProgs\mjl\ICD\MJ\MJ.Web\bin\System.Web.WebPages.Razor.xml
-E:\10. NewProgs\mjl\ICD\MJ\MJ.Web\obj\Debug\MJ.Web.csprojResolveAssemblyReference.cache
 E:\10. NewProgs\mjl\ICD\MJ\MJ.Web\obj\Debug\MJ.Web.dll
 E:\10. NewProgs\mjl\ICD\MJ\MJ.Web\obj\Debug\MJ.Web.pdb
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web\bin\MJ.Web.dll.config

@@ -124,7 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="PostImage\" />
+    <Folder Include="PostImages\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
