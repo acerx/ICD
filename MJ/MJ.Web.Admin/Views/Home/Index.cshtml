@@ -1,8 +1,7 @@
 ﻿@model MJ.Web.Admin.Models.UserModel
 
 @{
-    ViewBag.Title = "Admin";
-    
+    ViewBag.Title = "Admin";    
 }
 
 <div>
@@ -18,7 +17,6 @@
                     </div>
                     <div style="float: right">
                         <a id="register()" style="cursor: pointer" data-toggle="modal" data-target="#myModal">Create New Account</a>
-                        @*<a onclick="register()" style="cursor: pointer">Create New Account</a>*@
                     </div>
                 </div>
                 <div class="panel-body">
@@ -129,7 +127,3 @@
 </div>
     
 }
-
-@*<div id="newUser" class="modal fade">
-    @Html.Partial("_Register")
-</div>*@

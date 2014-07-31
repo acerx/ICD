@@ -49,29 +49,3 @@
 function refr() {
     location.reload();
 }
-
-//function register() {
-
-//    var usernameStr = $('#usernameTxt').val();
-//    var userpasswordStr = $('#passwordTxt').val();
-
-//    $.ajax({
-//        url: '../User/Register',
-//        type: 'POST',
-//        data: {
-//            username: usernameStr,
-//            password: userpasswordStr
-//        },
-//        dataType: "json",
-//        success: function (data) {
-//            alert(data.success);
-//        },
-//        error: function () {
-//            alert("error");
-//        }
-//    });
-//}
-
-//function register() {
-//    $('#newUser').modal('show');
-//}
