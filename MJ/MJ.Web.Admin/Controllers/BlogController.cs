@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using MJ.Common.DTO;
 using MJ.Services;
@@ -37,11 +40,11 @@ namespace MJ.Web.Admin.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(PostsModel posts)
+        public ActionResult Index(PostsModel posts, HttpPostedFileBase file)
         {
             if (!string.IsNullOrEmpty(posts.PostTitle) && !string.IsNullOrEmpty(posts.PostDetails.PostText))
             {
-                PostsDto postsDto = BuildPostDto(posts);
+                PostsDto postsDto = BuildPostDto(posts, file);
                 bool check = PostService.AddPost(postsDto);
 
                 if (check)
@@ -57,14 +60,14 @@ namespace MJ.Web.Admin.Controllers
 
         #region PRIVATES
 
-        private PostsDto BuildPostDto(PostsModel posts)
+        private PostsDto BuildPostDto(PostsModel posts, HttpPostedFileBase file)
         {
             var postsDto = new PostsDto
             {
                 PostId = Guid.NewGuid(),
                 PostTitle = posts.PostTitle,
                 PostDateTime = DateTime.Now,
-                PostDetailsDto = BuildPostDetailsDto(posts.PostDetails),
+                PostDetailsDto = BuildPostDetailsDto(posts.PostDetails, file),
                 PostDeleted = false,
                 UserId = posts.UserId
             };
@@ -73,16 +76,45 @@ namespace MJ.Web.Admin.Controllers
             return postsDto;
         }
 
-        private PostDetailsDto BuildPostDetailsDto(PostDetails postDetails)
+        private PostDetailsDto BuildPostDetailsDto(PostDetails postDetails, HttpPostedFileBase file)
         {
-            var postDetailsDto = new PostDetailsDto
-            {
-                PostDetailId = Guid.NewGuid(),
-                PostText = postDetails.PostText,
-                PostImage = postDetails.PostImage
-            };
+            PostDetailsDto postDetailsDto;
 
-            return postDetailsDto;
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileExtension = Path.GetExtension(file.FileName);
+                var fileName = Guid.NewGuid() + fileExtension;
+                var path = Path.Combine(Server.MapPath("~/PostImages"), fileName);
+
+                var photo = new WebImage(file.InputStream);
+
+                if (photo != null)
+                {
+                    var userPicture = photo.Clone().Crop(1, 1, 1, 1);
+                    userPicture.Save(path);
+                }
+
+                postDetailsDto = new PostDetailsDto
+                {
+                    PostDetailId = Guid.NewGuid(),
+                    PostText = postDetails.PostText,
+                    PostImage = fileName.ToString(CultureInfo.InvariantCulture)
+                };
+
+                return postDetailsDto;
+            }
+            else
+            {
+                postDetailsDto = new PostDetailsDto
+                {
+                    PostDetailId = Guid.NewGuid(),
+                    PostText = postDetails.PostText,
+                    PostImage = string.Empty
+                };
+
+                return postDetailsDto;
+            }
+            
         }
 
         #endregion
