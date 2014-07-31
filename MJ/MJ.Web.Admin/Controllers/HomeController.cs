@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Web.Mvc;
+using System.Web.Security;
 using MJ.Common.DTO;
 using MJ.Services.IServices;
 using MJ.Services;
+using MJ.Web.Admin.Models;
 
 namespace MJ.Web.Admin.Controllers
 {
@@ -30,6 +32,25 @@ namespace MJ.Web.Admin.Controllers
         {
             ViewBag.result = TempData["Message"] as string;
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(UserModel user)
+        {
+            if (IsValidCredential(user.Username, user.Password))
+            {
+                var userId = UserService.GetUserId(user.Username);
+
+                var userInfo = UserService.GetUserInfo(userId);
+
+                FormsAuthentication.SetAuthCookie(userInfo.Email, false);
+                SetUserDataSession(userInfo);
+
+                return RedirectToAction("Index", "Blog");
+            }
+
+            return View(user);
         }
 
         // POST USING AJAX
@@ -63,6 +84,13 @@ namespace MJ.Web.Admin.Controllers
             return Json(new { success = true });
         }
 
+        public ActionResult Logoff()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
+
         #endregion
 
         #region PRIVATE
@@ -93,6 +121,30 @@ namespace MJ.Web.Admin.Controllers
         #endregion
 
         #region MISC
+
+        private bool IsValidCredential(string username, string password)
+        {
+            return UserService.UserLogin(username, password);
+        }
+
+        private void SetUserDataSession(UserDto user)
+        {
+            try
+            {
+                var userData = new UserSessionData
+                {
+                    UserId = user.UserId,
+                    Email = user.Email
+                };
+
+                Session["userData"] = userData;
+            }
+            catch (Exception ex)
+            {                
+                throw new Exception(ex.Message);
+            }
+        }
+
         #endregion
 
     }

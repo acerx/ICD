@@ -12,5 +12,11 @@ namespace MJ.Services.IServices
 
         bool AddUser(UserDto userDto);
 
+        bool UserLogin(string username, string password);
+
+        Guid GetUserId(string email);
+
+        UserDto GetUserInfo(Guid userId);
+
     }
 }

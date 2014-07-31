@@ -37,6 +37,57 @@ namespace MJ.Services
             return result;
         }
 
+        public bool UserLogin(string username, string password)
+        {
+            var crypto = new PBKDF2();
+
+            using (var db = new MJEntities())
+            {
+                var user = db.SystemUsers.FirstOrDefault(u=> u.email.Equals(username));
+
+                if (user != null)
+                {
+                    var decryptedPassword = crypto.Compute(password, user.pwdSalt);
+
+                    if (user.password.Equals(decryptedPassword))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        public Guid GetUserId(string email)
+        {
+            using (var db = new MJEntities())
+            {
+                return db.SystemUsers.FirstOrDefault(u => u.email.Equals(email)).userId;
+            }
+        }
+
+        public UserDto GetUserInfo(Guid userId)
+        {
+            UserDto userDto = null;
+
+            using (var db = new MJEntities())
+            {
+                SystemUser user = db.SystemUsers.FirstOrDefault(u => u.userId == userId);
+
+                if (user == null)
+                {
+                    userDto = null;
+                }
+
+                var uId = user.userId;
+
+                userDto = BuildUserDto(user);
+            }
+
+            return userDto;
+        }
+
         #region PRIVATE
 
         private SystemUser FillNewSystemUserEntity(SystemUser newUser, UserDto userDto)
@@ -54,6 +105,18 @@ namespace MJ.Services
             newUser.datetimeCreated = userDto.DateTimeCreated;
 
             return newUser;
+        }
+
+        #endregion
+
+        #region BUILD / AUTOMAP
+
+        private UserDto BuildUserDto(SystemUser user)
+        {
+            AutoMapper.Mapper.CreateMap<SystemUser, UserDto>();
+            UserDto userDto = AutoMapper.Mapper.Map<SystemUser, UserDto>(user);
+
+            return userDto;
         }
 
         #endregion

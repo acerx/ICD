@@ -1,0 +1,61 @@
+﻿@model MJ.Web.Admin.Models.PostsModel
+
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutBlog.cshtml";
+
+    var userData = Session["userData"] as MJ.Web.Admin.Models.UserSessionData;
+    var currentUserId = userData.UserId;
+}
+
+<div class="row" style="margin-top: 20px">
+    
+    <div style="width: 75%; margin-left: 12.5%" class="panel panel-default myShadow">
+        <div class="panel-heading">Add Post Entry</div>
+        <div class="panel-body">
+           
+            <div class="col-md-12">
+                
+                <div style="color: red; font-size: small; font-weight: bold" class="form-group">
+                    @ViewBag.Message
+                </div>
+
+                @using (Html.BeginForm(actionName: "Index", controllerName: "Blog", method: FormMethod.Post, htmlAttributes: new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @*@Html.HiddenFor(p=> p.UserId, new { value = @currentUserId })*@
+                    @Html.Hidden("userid", @currentUserId)
+                    
+                    <div style="font-size: small">@Html.ValidationMessageFor(p => p.PostTitle)</div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-th"></i>
+                        </span>
+                        @Html.TextBoxFor(p => p.PostTitle, new { @class = "form-control", @placeholder = "Post Title", @style = "max-width: 100%;" })
+                    </div>
+                    
+                
+                    <div style="font-size: small">@Html.ValidationMessageFor(p => p.PostDetails.PostText)</div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </span>
+                        @Html.TextAreaFor(p => p.PostDetails.PostText, new { @class = "form-control uni-plceholdr", id = "txtAreaNotes", @cols = 25, @rows = 8, placeholder = "Enter message here.", @style = "max-width: 100%;" })
+                    </div>
+                    
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-picture"></i>                            
+                        </span>
+                        <input type="file" name="file" id="file" class="form-control form-group" style="max-width: 50%" />
+                    </div>
+                    
+                    <input type="submit" value="Submit Post" class="btn btn-success" />
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
