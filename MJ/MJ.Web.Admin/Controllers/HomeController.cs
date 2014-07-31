@@ -58,6 +58,11 @@ namespace MJ.Web.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(string username, string password, string confirmpassword)
         {
+            if (UserService.CheckEmailExists(username))
+            {
+                var result = "Exists";
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
