@@ -4,6 +4,8 @@ using MJ.Common.DTO;
 using MJ.Services.IServices;
 using MJ.Services;
 using MJ.Web.Admin.Models;
+using System.Net;
+using System.Web.Helpers;
 
 namespace MJ.Web.Admin.Controllers
 {
@@ -29,7 +31,7 @@ namespace MJ.Web.Admin.Controllers
         {
 
             ViewBag.result = TempData["Message"] as string;
-            ViewBag.Error = TempData["Error"] as string;
+            //ViewBag.Error = TempData["Error"] as string;
             return View();
         }
 
@@ -48,6 +50,7 @@ namespace MJ.Web.Admin.Controllers
         }
 
         // POST USING AJAX
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(string username, string password, string confirmpassword)
         {
@@ -131,6 +134,9 @@ namespace MJ.Web.Admin.Controllers
 
         #region BUILD
 
+        #endregion
+
+        #region MISC
         #endregion
 
     }
