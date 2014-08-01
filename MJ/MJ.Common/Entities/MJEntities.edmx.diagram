@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7b966d78353d428e9bc1db3a8f3c2ece" Name="Diagram1">
+      <Diagram DiagramId="d8ffe6a0f3864b9ea20446b63f7140a9" Name="Diagram1">
         <EntityTypeShape EntityType="MJContext.Comment" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MJContext.PostDetail" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MJContext.Post" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="MJContext.SystemUser" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="MJContext.UserType" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <AssociationConnector Association="MJContext.FK__Comments__commen__6A30C649" ManuallyRouted="false" />
-        <AssociationConnector Association="MJContext.FK__PostDetai__postI__66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="MJContext.FK__Posts__userId__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="MJContext.FK__SystemUse__userT__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="MJContext.FK__Comments__commen__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="MJContext.FK__PostDetai__postI__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="MJContext.FK__Posts__userId__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="MJContext.FK__SystemUse__userT__72C60C4A" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -29,7 +29,7 @@
             <PropertyRef Name="postId" />
           </Key>
           <Property Name="postId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="postTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="postTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="postDateTime" Type="datetime" Nullable="false" />
           <Property Name="postDeleted" Type="bit" Nullable="false" />
           <Property Name="userId" Type="uniqueidentifier" Nullable="false" />
@@ -56,7 +56,7 @@
           <Property Name="userTypeId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="userTyped" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Comments__commen__6A30C649">
+        <Association Name="FK__Comments__commen__01142BA1">
           <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="1" />
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -68,7 +68,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PostDetai__postI__66603565">
+        <Association Name="FK__PostDetai__postI__7D439ABD">
           <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
           <End Role="PostDetails" Type="Self.PostDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -80,7 +80,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Posts__userId__628FA481">
+        <Association Name="FK__Posts__userId__797309D9">
           <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="1" />
           <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -92,7 +92,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SystemUse__userT__5BE2A6F2">
+        <Association Name="FK__SystemUse__userT__72C60C4A">
           <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
           <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,19 +110,19 @@
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SystemUsers" EntityType="Self.SystemUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Comments__commen__6A30C649" Association="Self.FK__Comments__commen__6A30C649">
+          <AssociationSet Name="FK__Comments__commen__01142BA1" Association="Self.FK__Comments__commen__01142BA1">
             <End Role="SystemUsers" EntitySet="SystemUsers" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__PostDetai__postI__66603565" Association="Self.FK__PostDetai__postI__66603565">
+          <AssociationSet Name="FK__PostDetai__postI__7D439ABD" Association="Self.FK__PostDetai__postI__7D439ABD">
             <End Role="Posts" EntitySet="Posts" />
             <End Role="PostDetails" EntitySet="PostDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Posts__userId__628FA481" Association="Self.FK__Posts__userId__628FA481">
+          <AssociationSet Name="FK__Posts__userId__797309D9" Association="Self.FK__Posts__userId__797309D9">
             <End Role="SystemUsers" EntitySet="SystemUsers" />
             <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
-          <AssociationSet Name="FK__SystemUse__userT__5BE2A6F2" Association="Self.FK__SystemUse__userT__5BE2A6F2">
+          <AssociationSet Name="FK__SystemUse__userT__72C60C4A" Association="Self.FK__SystemUse__userT__72C60C4A">
             <End Role="UserType" EntitySet="UserType" />
             <End Role="SystemUsers" EntitySet="SystemUsers" />
           </AssociationSet>
@@ -141,7 +141,7 @@
           <Property Name="commenterId" Type="Guid" Nullable="false" />
           <Property Name="commentDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="commentDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="SystemUser" Relationship="Self.FK__Comments__commen__6A30C649" FromRole="Comments" ToRole="SystemUsers" />
+          <NavigationProperty Name="SystemUser" Relationship="Self.FK__Comments__commen__01142BA1" FromRole="Comments" ToRole="SystemUsers" />
         </EntityType>
         <EntityType Name="PostDetail">
           <Key>
@@ -151,19 +151,19 @@
           <Property Name="postId" Type="Guid" Nullable="false" />
           <Property Name="postText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="postImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Post" Relationship="Self.FK__PostDetai__postI__66603565" FromRole="PostDetails" ToRole="Posts" />
+          <NavigationProperty Name="Post" Relationship="Self.FK__PostDetai__postI__7D439ABD" FromRole="PostDetails" ToRole="Posts" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
             <PropertyRef Name="postId" />
           </Key>
           <Property Name="postId" Type="Guid" Nullable="false" />
-          <Property Name="postTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="postTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="postDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="postDeleted" Type="Boolean" Nullable="false" />
           <Property Name="userId" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="PostDetails" Relationship="Self.FK__PostDetai__postI__66603565" FromRole="Posts" ToRole="PostDetails" />
-          <NavigationProperty Name="SystemUser" Relationship="Self.FK__Posts__userId__628FA481" FromRole="Posts" ToRole="SystemUsers" />
+          <NavigationProperty Name="PostDetails" Relationship="Self.FK__PostDetai__postI__7D439ABD" FromRole="Posts" ToRole="PostDetails" />
+          <NavigationProperty Name="SystemUser" Relationship="Self.FK__Posts__userId__797309D9" FromRole="Posts" ToRole="SystemUsers" />
         </EntityType>
         <EntityType Name="SystemUser">
           <Key>
@@ -179,9 +179,9 @@
           <Property Name="datetimeCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="datetimeUpdated" Type="DateTime" Precision="3" />
           <Property Name="datetimeDeleted" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__commen__6A30C649" FromRole="SystemUsers" ToRole="Comments" />
-          <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__userId__628FA481" FromRole="SystemUsers" ToRole="Posts" />
-          <NavigationProperty Name="UserType" Relationship="Self.FK__SystemUse__userT__5BE2A6F2" FromRole="SystemUsers" ToRole="UserType" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__commen__01142BA1" FromRole="SystemUsers" ToRole="Comments" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__userId__797309D9" FromRole="SystemUsers" ToRole="Posts" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK__SystemUse__userT__72C60C4A" FromRole="SystemUsers" ToRole="UserType" />
         </EntityType>
         <EntityType Name="UserType">
           <Key>
@@ -189,9 +189,9 @@
           </Key>
           <Property Name="userTypeId" Type="Guid" Nullable="false" />
           <Property Name="userTyped" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="SystemUsers" Relationship="Self.FK__SystemUse__userT__5BE2A6F2" FromRole="UserType" ToRole="SystemUsers" />
+          <NavigationProperty Name="SystemUsers" Relationship="Self.FK__SystemUse__userT__72C60C4A" FromRole="UserType" ToRole="SystemUsers" />
         </EntityType>
-        <Association Name="FK__Comments__commen__6A30C649">
+        <Association Name="FK__Comments__commen__01142BA1">
           <End Role="SystemUsers" Type="Self.SystemUser" Multiplicity="1" />
           <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -203,7 +203,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PostDetai__postI__66603565">
+        <Association Name="FK__PostDetai__postI__7D439ABD">
           <End Role="Posts" Type="Self.Post" Multiplicity="1" />
           <End Role="PostDetails" Type="Self.PostDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -215,7 +215,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Posts__userId__628FA481">
+        <Association Name="FK__Posts__userId__797309D9">
           <End Role="SystemUsers" Type="Self.SystemUser" Multiplicity="1" />
           <End Role="Posts" Type="Self.Post" Multiplicity="*" />
           <ReferentialConstraint>
@@ -227,7 +227,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SystemUse__userT__5BE2A6F2">
+        <Association Name="FK__SystemUse__userT__72C60C4A">
           <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
           <End Role="SystemUsers" Type="Self.SystemUser" Multiplicity="*" />
           <ReferentialConstraint>
@@ -245,19 +245,19 @@
           <EntitySet Name="Posts" EntityType="Self.Post" />
           <EntitySet Name="SystemUsers" EntityType="Self.SystemUser" />
           <EntitySet Name="UserTypes" EntityType="Self.UserType" />
-          <AssociationSet Name="FK__Comments__commen__6A30C649" Association="Self.FK__Comments__commen__6A30C649">
+          <AssociationSet Name="FK__Comments__commen__01142BA1" Association="Self.FK__Comments__commen__01142BA1">
             <End Role="SystemUsers" EntitySet="SystemUsers" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__PostDetai__postI__66603565" Association="Self.FK__PostDetai__postI__66603565">
+          <AssociationSet Name="FK__PostDetai__postI__7D439ABD" Association="Self.FK__PostDetai__postI__7D439ABD">
             <End Role="Posts" EntitySet="Posts" />
             <End Role="PostDetails" EntitySet="PostDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Posts__userId__628FA481" Association="Self.FK__Posts__userId__628FA481">
+          <AssociationSet Name="FK__Posts__userId__797309D9" Association="Self.FK__Posts__userId__797309D9">
             <End Role="SystemUsers" EntitySet="SystemUsers" />
             <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
-          <AssociationSet Name="FK__SystemUse__userT__5BE2A6F2" Association="Self.FK__SystemUse__userT__5BE2A6F2">
+          <AssociationSet Name="FK__SystemUse__userT__72C60C4A" Association="Self.FK__SystemUse__userT__72C60C4A">
             <End Role="UserType" EntitySet="UserTypes" />
             <End Role="SystemUsers" EntitySet="SystemUsers" />
           </AssociationSet>

@@ -22,7 +22,10 @@
                 <div class="navbar-brand navbar-right">
                     @if (Request.IsAuthenticated)
                     {
-                        <div class="myTextWhite" style="font-size: small">Hello, <b>@Html.Encode(User.Identity.Name)</b> @Html.ActionLink("Logout", "Logoff", "Home", null, new { @style = "color: red; font-size: small" })</div>
+                        string un = User.Identity.Name;
+                        string username = un.Substring(0, un.IndexOf('@'));
+                        
+                        <div class="myTextWhite" style="font-size: small">Hello, <b>@Html.Encode(username)</b> @Html.ActionLink("Logout", "Logoff", "Home", null, new { @style = "color: red; font-size: small" })</div>
                     }
                 </div>
             </div>

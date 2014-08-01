@@ -7,11 +7,14 @@
         {
             foreach (var item in Model.PostList)
             {
-                <ul class="list-blog">
+                <ul class="list-blog" style="margin-bottom: -50px">
                     <li class="myTextBlack">
                         <h3 class="myTextBlack">@Html.DisplayFor(p=> item.PostTitle)</h3>
                         <div class="date-1">@Html.DisplayFor(p=> item.PostDateTime)</div>
-                        <div class="name-author">by <a class="myTextWhite" href="#">@Html.DisplayFor(p=> item.Username)</a></div>
+                        @*<div class="name-author">by <a class="myTextBlack" href="#">@Html.DisplayFor(p=> item.Username)</a></div>*@
+                        <div class="name-author">
+                            by <b class="myTextRed">@Html.DisplayFor(p => item.Username)</b>
+                        </div>
                         <div class="clear"></div>
                         
                         @if (item.PostImage == "")
@@ -23,11 +26,12 @@
                             @*<img style="width: 740px; height: 342px" alt="" src="http://localhost:4157/PostImages/@Html.DisplayFor(p=> item.PostImage)">*@
                             <img style="width: 740px; height: 342px" alt="" src="http://localhost:4157/PostImages/@Html.DisplayFor(p=> item.PostImage)" />
                         }   
-                        <p>
+                        <p class="text-justify">
                             @Html.DisplayFor(p=> item.PostText)
                         </p>
                     </li>
                 </ul>
+                <hr style="border-style: dashed; opacity: .3"/>
             }
         }
     }
@@ -42,28 +46,3 @@
         </b>
     </div>
 </div>
-
-@*<ul class="list-blog">
-    <li class="myTextBlack">
-        <h3 class="myTextBlack">Duis autem vel eum iriure dolor Haha sample rani</h3>
-        <time datetime="2012-11-09" class="date-1">9.11.2012</time>
-        <div class="name-author">by <a class="myTextWhite" href="#">Admin</a></div>
-        <a href="#" class="comments myTextWhite">11 comments</a>
-        <div class="clear"></div>
-        <img alt="" src="img/page4-img1.jpg">
-        <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum delenit augue duis dolore te feugait nulla facilisi.</p>
-        <a href="#" class="btn btn-1">Read More</a>
-    </li>
-
-    <li class="myTextBlack">
-        <h3 class="myTextBlack">Hendrerit in vulputate velit esse molestie</h3>
-        <time datetime="2012-11-08" class="date-1">8.11.2012</time>
-        <div class="name-author">by <a class="myTextWhite" href="#">Admin</a></div>
-        <a href="#" class="comments myTextWhite">9 comments</a>
-        <div class="clear"></div>
-        <img alt="" src="img/page4-img2.jpg">
-        <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum delenit augue duis dolore te feugait nulla facilisi.</p>
-        <a href="#" class="btn btn-1">Read More</a>
-    </li>
-
-</ul>*@
