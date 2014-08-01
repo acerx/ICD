@@ -103,3 +103,9 @@ D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\obj\Debug\MJ.Web.Admin.dll
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\obj\Debug\MJ.Web.Admin.pdb
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\bin\AutoMapper.dll
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Web.Admin\bin\AutoMapper.xml
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Web.Admin\bin\AutoMapper.dll
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Web.Admin\bin\AutoMapper.xml
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Web.Admin\bin\PagedList.dll
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Web.Admin\bin\PagedList.Mvc.dll
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Web.Admin\bin\PagedList.xml
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Web.Admin\bin\PagedList.Mvc.xml

@@ -25,8 +25,16 @@
                     location.reload();
                 }
                 else if (result == "SamePassword") {
-                    $('.modalTitle').val("Specialty not deleted.");
+                    $('.modalTitle').val("Error Message");
                     $('#modalMessage').html("Passwords does not match. Please try again.");
+                    $('#registerLoading').hide();
+                    $('#closeBtn').html("Ok");
+                    $('#registerBtn').hide();
+                    $('#conData').hide();
+                }
+                else if (result == "Exists") {
+                    $('.modalTitle').val("Error Message");
+                    $('#modalMessage').html("Email already exists. Please input another email address.");
                     $('#registerLoading').hide();
                     $('#closeBtn').html("Ok");
                     $('#registerBtn').hide();

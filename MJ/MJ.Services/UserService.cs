@@ -88,6 +88,33 @@ namespace MJ.Services
             return userDto;
         }
 
+        public bool CheckEmailExists(string email)
+        {
+            bool result = false;
+
+            try
+            {
+                using (var db = new MJEntities())
+                {
+                    var query = (from a in db.SystemUsers
+                                 where a.email == email
+                                 select a).FirstOrDefault();
+
+                    if (query != null)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                throw new Exception(ex.Message);
+            }
+
+            return result;
+        }
+
         #region PRIVATE
 
         private SystemUser FillNewSystemUserEntity(SystemUser newUser, UserDto userDto)

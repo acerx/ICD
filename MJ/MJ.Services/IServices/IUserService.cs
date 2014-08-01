@@ -18,5 +18,6 @@ namespace MJ.Services.IServices
 
         UserDto GetUserInfo(Guid userId);
 
+        bool CheckEmailExists(string email);
     }
 }

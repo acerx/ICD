@@ -32,3 +32,8 @@ D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\obj\Debug\MJ.Services.pdb
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\AutoMapper.dll
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\AutoMapper.Net4.dll
 D:\Misc\8. MyRepos\MJL\ICD\MJ\MJ.Services\bin\Debug\AutoMapper.xml
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Services\bin\Debug\AutoMapper.dll
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Services\bin\Debug\AutoMapper.Net4.dll
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Services\bin\Debug\AutoMapper.xml
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Services\bin\Debug\PagedList.dll
+E:\10. NewProgs\mjl\ICD\MJ\MJ.Services\bin\Debug\PagedList.xml

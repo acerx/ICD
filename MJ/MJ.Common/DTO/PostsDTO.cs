@@ -19,5 +19,7 @@ namespace MJ.Common.DTO
 
         public Guid UserId { get; set; }
 
+        public PostDetailsDto PostDetailsDto { get; set; }
+
     }
 }
