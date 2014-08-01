@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title MJL - Road To Miss Universe</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/myScripts.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            
+            <div>
+                <div class="navbar-brand">
+                    <span class="myTextWhite">Administrator</span>
+                </div>
+                <div class="navbar-brand navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        string un = User.Identity.Name;
+                        string username = un.Substring(0, un.IndexOf('@'));
+                        
+                        <div class="myTextWhite" style="font-size: small">Hello, <b>@Html.Encode(username)</b> @Html.ActionLink("Logout", "Logoff", "Home", null, new { @style = "color: red; font-size: small" })</div>
+                    }
+                </div>
+            </div>
+
+            @*<div class="navbar-header">
+                
+                <div class="myTextWhite">
+
+                    <div class="navbar-brand">
+                        Administrator
+                    </div>
+                    <div class="navbar-brand">
+                        <ul class="nav navbar-nav">
+                            <li>Home</li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>User</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="navbar-brand">
+                    <span class="myTextWhite">Administrator</span>
+                    
+                </div>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li style="margin-top: 10px; color: white">Hello, <b>@Html.Encode(User.Identity.Name)</b></li>
+                        <li>@Html.ActionLink("Logout", "Logoff", "Home", null, new { @style = "color: red" })</li>
+                    }
+                </ul>
+
+            </div>*@
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2010 - @DateTime.Now.Year MJL - Road to Miss Universe. Powered by Incoredev</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
