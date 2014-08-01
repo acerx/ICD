@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MJ.Common.DTO
 {
-    public class UserDto
+    public class SystemUserDto
     {
 
         public Guid UserId { get; set; }

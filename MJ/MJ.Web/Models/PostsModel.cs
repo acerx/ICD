@@ -14,7 +14,7 @@ namespace MJ.Web.Models
 
         public string PostTitle { get; set; }
 
-        public DateTime PostDateTime { get; set; }
+        public string PostDateTime { get; set; }
 
         public DateTime PostDeleted { get; set; }
 
@@ -22,22 +22,11 @@ namespace MJ.Web.Models
 
         public string Username { get; set; }
 
-        public PostDetails PostDetails { get; set; }
-
-    }
-
-    public class PostDetails
-    {
-
-        public Guid PostDetailId { get; set; }
-
-        public Guid PostId { get; set; }
-
         public string PostText { get; set; }
 
         public string PostImage { get; set; }
-    }
 
+    }
 
     public class Post
     {

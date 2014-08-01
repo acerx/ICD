@@ -10,13 +10,13 @@ namespace MJ.Services.IServices
     public interface IUserService
     {
 
-        bool AddUser(UserDto userDto);
+        bool AddUser(SystemUserDto userDto);
 
         bool UserLogin(string username, string password);
 
         Guid GetUserId(string email);
 
-        UserDto GetUserInfo(Guid userId);
+        SystemUserDto GetUserInfo(Guid userId);
 
         bool CheckEmailExists(string email);
     }

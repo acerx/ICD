@@ -13,7 +13,7 @@ namespace MJ.Services
     public class UserService : IUserService
     {
 
-        public bool AddUser(UserDto userDto)
+        public bool AddUser(SystemUserDto userDto)
         {
             bool result = false;
 
@@ -67,9 +67,9 @@ namespace MJ.Services
             }
         }
 
-        public UserDto GetUserInfo(Guid userId)
+        public SystemUserDto GetUserInfo(Guid userId)
         {
-            UserDto userDto = null;
+            SystemUserDto userDto = null;
 
             using (var db = new MJEntities())
             {
@@ -117,7 +117,7 @@ namespace MJ.Services
 
         #region PRIVATE
 
-        private SystemUser FillNewSystemUserEntity(SystemUser newUser, UserDto userDto)
+        private SystemUser FillNewSystemUserEntity(SystemUser newUser, SystemUserDto userDto)
         {
             var crypto = new SimpleCrypto.PBKDF2();
             var encryptPass = crypto.Compute(userDto.Password);
@@ -138,10 +138,10 @@ namespace MJ.Services
 
         #region BUILD / AUTOMAP
 
-        private UserDto BuildUserDto(SystemUser user)
+        private SystemUserDto BuildUserDto(SystemUser user)
         {
-            AutoMapper.Mapper.CreateMap<SystemUser, UserDto>();
-            UserDto userDto = AutoMapper.Mapper.Map<SystemUser, UserDto>(user);
+            AutoMapper.Mapper.CreateMap<SystemUser, SystemUserDto>();
+            SystemUserDto userDto = AutoMapper.Mapper.Map<SystemUser, SystemUserDto>(user);
 
             return userDto;
         }

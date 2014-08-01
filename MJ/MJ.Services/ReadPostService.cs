@@ -19,8 +19,8 @@ namespace MJ.Services
                 {
                     var postList = new List<PostsDto>();
 
-                    var posts = from a in db.Posts
-                                select a;
+                    var posts = (from a in db.Posts
+                                select a).OrderByDescending(a=> a.postDateTime);
 
                     foreach (var item in posts)
                     {
@@ -29,6 +29,21 @@ namespace MJ.Services
 
                     return postList;
                 }
+            }
+            catch (Exception ex)
+            {
+                
+                throw new Exception(ex.Message);
+            }
+
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<SystemUserDto> GetAllUserPosts()
+        {
+            try
+            {
+
             }
             catch (Exception ex)
             {

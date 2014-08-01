@@ -81,7 +81,7 @@ namespace MJ.Web.Admin.Controllers
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
 
-            UserDto userDto = BuildUserDto(username, password);
+            SystemUserDto userDto = BuildUserDto(username, password);
             bool checker = UserService.AddUser(userDto);
 
             if (checker)
@@ -105,12 +105,12 @@ namespace MJ.Web.Admin.Controllers
 
         #region PRIVATE
 
-        private UserDto BuildUserDto(string username, string password)
+        private SystemUserDto BuildUserDto(string username, string password)
         {
             const string defaultUserType = "Admin";
             var userTypedId = StaticService.GetUserTypeId(defaultUserType);
 
-            var userDto = new UserDto
+            var userDto = new SystemUserDto
             {
                 UserId = Guid.NewGuid(),
                 Email = username,
@@ -137,7 +137,7 @@ namespace MJ.Web.Admin.Controllers
             return UserService.UserLogin(username, password);
         }
 
-        private void SetUserDataSession(UserDto user)
+        private void SetUserDataSession(SystemUserDto user)
         {
             try
             {

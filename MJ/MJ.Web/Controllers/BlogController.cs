@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -46,7 +47,7 @@ namespace MJ.Web.Controllers
 
             var pageIndex = post.Page ?? 1;
 
-            model.PostList = FillInPostList(posts, pageIndex, 5);
+            model.PostList = FillInPostList(posts, pageIndex, 3);
 
             return PartialView(model);
         }
@@ -62,9 +63,12 @@ namespace MJ.Web.Controllers
                 var post = new PostsModel();
 
                 post.PostTitle = item.PostTitle;
-                //post.PostDetails.PostText = item.PostDetailsDto.PostText;
-                //post.PostDetails.PostImage = item.PostDetailsDto.PostImage;
-
+                post.PostText = item.PostDetailsDto.PostText;
+                post.PostImage = string.IsNullOrEmpty(item.PostDetailsDto.PostImage)
+                    ? ""
+                    : item.PostDetailsDto.PostImage;
+                post.PostDateTime = item.PostDateTime.ToString("ddd MMM. dd, yyyy - hh:mm tt");
+                //post.Username = GetUserName(item.UserId);
                 postList.Add(post);
             }
 
