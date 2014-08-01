@@ -11,7 +11,7 @@
                     <li class="myTextBlack">
                         <h3 class="myTextBlack">@Html.DisplayFor(p=> item.PostTitle)</h3>
                         <div class="date-1">@Html.DisplayFor(p=> item.PostDateTime)</div>
-                        <div class="name-author">by <a class="myTextWhite" href="#">Admin</a></div>
+                        <div class="name-author">by <a class="myTextWhite" href="#">@Html.DisplayFor(p=> item.Username)</a></div>
                         <div class="clear"></div>
                         
                         @if (item.PostImage == "")
@@ -20,7 +20,8 @@
                         }
                         else
                         {
-                            <img style="width: 740px; height: 342px" alt="" src="http://localhost:4157/PostImages/@Html.DisplayFor(p=> item.PostImage)">
+                            @*<img style="width: 740px; height: 342px" alt="" src="http://localhost:4157/PostImages/@Html.DisplayFor(p=> item.PostImage)">*@
+                            <img style="width: 740px; height: 342px" alt="" src="http://localhost:4157/PostImages/@Html.DisplayFor(p=> item.PostImage)" />
                         }   
                         <p>
                             @Html.DisplayFor(p=> item.PostText)

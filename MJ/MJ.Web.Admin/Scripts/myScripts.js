@@ -5,55 +5,80 @@
         var userpasswordStr = $('#passwordTxt').val();
         var userconfirmpasswordStr = $('#confPasswordTxt').val();
 
-        $('#registerLoading').show();
+        var isEmailValid = validateEmail(usernameStr);
 
-        var postData = {
-            __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
-            username: usernameStr,
-            password: userpasswordStr,
-            confirmpassword: userconfirmpasswordStr
-        };
+        if (isEmailValid) {
+            
+            $('#registerLoading').show();
 
-        $.ajax({
-            type: "POST",
-            url: '/Home/Register',
-            dataType: "json",
-            data: postData,
-            success: function (result) {
-                if (result == "Success") {
-                    $('#closeBtn').click();
-                    location.reload();
-                }
-                else if (result == "SamePassword") {
-                    $('.modalTitle').val("Error Message");
-                    $('#modalMessage').html("Passwords does not match. Please try again.");
-                    $('#registerLoading').hide();
-                    $('#closeBtn').html("Ok");
-                    $('#registerBtn').hide();
-                    $('#conData').hide();
-                }
-                else if (result == "Exists") {
-                    $('.modalTitle').val("Error Message");
-                    $('#modalMessage').html("Email already exists. Please input another email address.");
-                    $('#registerLoading').hide();
-                    $('#closeBtn').html("Ok");
-                    $('#registerBtn').hide();
-                    $('#conData').hide();
-                }
-                else {
-                    $('.modalTitle').val("Specialty not deleted.");
-                    $('#modalMessage').html("Failed in creating new account. Fields must not be empty.");
-                    $('#registerLoading').hide();
-                    $('#closeBtn').html("Ok");
-                    $('#registerBtn').hide();
-                    $('#conData').hide();
-                }
-            },
-        });
+            var postData = {
+                __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
+                username: usernameStr,
+                password: userpasswordStr,
+                confirmpassword: userconfirmpasswordStr
+            };
+
+            $.ajax({
+                type: "POST",
+                url: '/Home/Register',
+                dataType: "json",
+                data: postData,
+                success: function (result) {
+                    if (result == "Success") {
+                        $('#closeBtn').click();
+                        location.reload();
+                    }
+                    else if (result == "SamePassword") {
+                        $('.modalTitle').val("Error Message");
+                        $('#modalMessage').html("Passwords does not match. Please try again.");
+                        $('#registerLoading').hide();
+                        $('#closeBtn').html("Ok");
+                        $('#registerBtn').hide();
+                        $('#conData').hide();
+                    }
+                    else if (result == "Exists") {
+                        $('.modalTitle').val("Error Message");
+                        $('#modalMessage').html("Email already exists. Please input another email address.");
+                        $('#registerLoading').hide();
+                        $('#closeBtn').html("Ok");
+                        $('#registerBtn').hide();
+                        $('#conData').hide();
+                    }
+                    else {
+                        $('.modalTitle').val("Specialty not deleted.");
+                        $('#modalMessage').html("Failed in creating new account. Fields must not be empty.");
+                        $('#registerLoading').hide();
+                        $('#closeBtn').html("Ok");
+                        $('#registerBtn').hide();
+                        $('#conData').hide();
+                    }
+                },
+            });
+
+        } else {
+            $('.modalTitle').val("Error Message");
+            $('#modalMessage').html("Not a valid email address");
+            $('#registerLoading').hide();
+            $('#closeBtn').html("Ok");
+            $('#registerBtn').hide();
+            $('#conData').hide();
+        }
+
+        
     });
 
 });
 
 function refr() {
     location.reload();
+}
+
+function validateEmail(email) {
+    var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+    if (reg.test(email)) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }

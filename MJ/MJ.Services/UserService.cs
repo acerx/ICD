@@ -115,6 +115,37 @@ namespace MJ.Services
             return result;
         }
 
+        public string GetUsername(Guid userId)
+        {
+            try
+            {
+                string usern = null;
+
+                using (var db = new MJEntities())
+                {
+                    SystemUser user = db.SystemUsers.FirstOrDefault(u => u.userId == userId);
+
+                    if (user == null)
+                    {
+                        usern = null;
+                    }
+
+                    var username = user.email;
+
+                    usern = username;
+                }
+
+                return usern;
+            }
+            catch (Exception ex)
+            {
+                
+                throw new Exception(ex.Message);
+            }
+
+            throw new NotImplementedException();
+        }
+
         #region PRIVATE
 
         private SystemUser FillNewSystemUserEntity(SystemUser newUser, SystemUserDto userDto)

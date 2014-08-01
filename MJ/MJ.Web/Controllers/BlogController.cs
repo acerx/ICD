@@ -61,6 +61,9 @@ namespace MJ.Web.Controllers
             foreach (var item in posts)
             {
                 var post = new PostsModel();
+                string un = UserService.GetUsername(item.UserId);
+                string username = un.Substring(0, un.IndexOf('@'));
+
 
                 post.PostTitle = item.PostTitle;
                 post.PostText = item.PostDetailsDto.PostText;
@@ -68,7 +71,7 @@ namespace MJ.Web.Controllers
                     ? ""
                     : item.PostDetailsDto.PostImage;
                 post.PostDateTime = item.PostDateTime.ToString("ddd MMM. dd, yyyy - hh:mm tt");
-                //post.Username = GetUserName(item.UserId);
+                post.Username = username;
                 postList.Add(post);
             }
 
