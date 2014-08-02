@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutBlog.cshtml";
+}
+
+<!--============================== content =================================-->
+<div id="content">
+    <div class="ic">More Website Templates TemplateMonster.com. November19, 2012!</div>
+    <div class="container">
+        <div class="row">
+            <article class="span8">
+                <div class="inner-1">
+                    
+                    @Html.Action("Blogs", "Blog")
+
+                </div>
+            </article>
+            <article class="span4">
+                <h3 class="extra myTextBlack">Advertisement Here</h3>
+                <div class="myTextBlack">
+                    {...}
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+
+
