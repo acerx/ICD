@@ -164,6 +164,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\admin.fjl.fs.pubxml" />
     <None Include="Properties\PublishProfiles\admin.mj.fs.pubxml" />
     <None Include="Properties\PublishProfiles\admin.mj.wp.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />

@@ -1,4 +1,5 @@
 ﻿@model MJ.Web.Models.Post
+@using System.Diagnostics
 @using PagedList.Mvc;
 
 <div>
@@ -9,7 +10,7 @@
             {
                 <ul class="list-blog" style="margin-bottom: -50px">
                     <li class="myTextBlack">
-                        <h3 class="myTextBlack">@Html.DisplayFor(p=> item.PostTitle)</h3>
+                        <h3 style="margin-top: 0px" class="myTextBlack">@Html.DisplayFor(p=> item.PostTitle)</h3>
                         <div class="date-1">@Html.DisplayFor(p=> item.PostDateTime)</div>
                         @*<div class="name-author">by <a class="myTextBlack" href="#">@Html.DisplayFor(p=> item.Username)</a></div>*@
                         <div class="name-author">
@@ -25,10 +26,12 @@
                         {
                             @*<img style="width: 740px; height: 342px" alt="" src="http://localhost:4157/PostImages/@Html.DisplayFor(p=> item.PostImage)">*@
                             @*<img style="width: 740px; height: 342px" alt="" src="http://localhost:4157/PostImages/@Html.DisplayFor(p=> item.PostImage)" />*@
-                            <img style="width: 740px; height: 342px" alt="" src="http://admin.mjlastimosa.com/PostImages/@Html.DisplayFor(p=> item.PostImage)" />
+                            <img class="myShadow" style="width: 740px; height: 342px; border-radius: 5px" alt="" src="http://admin.mjlastimosa.com/PostImages/@Html.DisplayFor(p=> item.PostImage)" />
                         }   
-                        <p class="text-justify">
-                            @Html.DisplayFor(p=> item.PostText)
+                        <p class="text-justify" style="margin-top: -30px">
+                            <div class="readmore">
+                                @Html.DisplayFor(p => item.PostText)
+                            </div>                           
                         </p>
                     </li>
                 </ul>
@@ -41,9 +44,23 @@
 <div>
     <div class="pager">
         @Html.PagedListPager(Model.PostList, page => Url.Action("Index", new RouteValueDictionary() {
-                            { "Page", page },}), PagedListRenderOptions.ClassicPlusFirstAndLast)
+            { "Page", page },}), PagedListRenderOptions.ClassicPlusFirstAndLast)
         <b style="color: black">
-            Page @(Model.PostList.Count < Model.PostList.PageNumber ? 0 : Model.PostList.PageNumber) of @Model.PostList.PageCount
+            @*Page 
+            @{
+                Debug.Assert(Model.PostList != null, "Model.PostList != null");
+            }
+            @(Model.PostList.Count < Model.PostList.PageNumber ? 0 : Model.PostList.PageNumber) of @Model.PostList.PageCount*@
         </b>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $('div.readmore').expander({
+            slicePoint: 100,
+            expandText: 'more',
+            userCollapseText: 'less'
+        });
+    });
+</script>

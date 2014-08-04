@@ -5,7 +5,7 @@
       <PropertyRef Name="commentId" />
     </Key>
     <Property Name="commentId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="commentText" Type="nvarchar" MaxLength="500" />
+    <Property Name="commentText" Type="nvarchar" MaxLength="3500" />
     <Property Name="commenterId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="commentDateTime" Type="datetime" Nullable="false" />
     <Property Name="commentDeleted" Type="bit" Nullable="false" />
@@ -16,7 +16,7 @@
     </Key>
     <Property Name="postDetailId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="postId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="postText" Type="nvarchar" MaxLength="500" />
+    <Property Name="postText" Type="nvarchar" MaxLength="3500" />
     <Property Name="postImage" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Posts">
@@ -51,7 +51,7 @@
     <Property Name="userTypeId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="userTyped" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Comments__commen__01142BA1">
+  <Association Name="FK__Comments__commen__45BE5BA9">
     <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="1" />
     <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
     <ReferentialConstraint>
@@ -63,7 +63,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PostDetai__postI__7D439ABD">
+  <Association Name="FK__PostDetai__postI__41EDCAC5">
     <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
     <End Role="PostDetails" Type="Self.PostDetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -75,7 +75,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Posts__userId__797309D9">
+  <Association Name="FK__Posts__userId__3E1D39E1">
     <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="1" />
     <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -87,7 +87,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SystemUse__userT__72C60C4A">
+  <Association Name="FK__SystemUse__userT__37703C52">
     <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
     <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="*" />
     <ReferentialConstraint>
@@ -105,19 +105,19 @@
     <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SystemUsers" EntityType="Self.SystemUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Comments__commen__01142BA1" Association="Self.FK__Comments__commen__01142BA1">
+    <AssociationSet Name="FK__Comments__commen__45BE5BA9" Association="Self.FK__Comments__commen__45BE5BA9">
       <End Role="SystemUsers" EntitySet="SystemUsers" />
       <End Role="Comments" EntitySet="Comments" />
     </AssociationSet>
-    <AssociationSet Name="FK__PostDetai__postI__7D439ABD" Association="Self.FK__PostDetai__postI__7D439ABD">
+    <AssociationSet Name="FK__PostDetai__postI__41EDCAC5" Association="Self.FK__PostDetai__postI__41EDCAC5">
       <End Role="Posts" EntitySet="Posts" />
       <End Role="PostDetails" EntitySet="PostDetails" />
     </AssociationSet>
-    <AssociationSet Name="FK__Posts__userId__797309D9" Association="Self.FK__Posts__userId__797309D9">
+    <AssociationSet Name="FK__Posts__userId__3E1D39E1" Association="Self.FK__Posts__userId__3E1D39E1">
       <End Role="SystemUsers" EntitySet="SystemUsers" />
       <End Role="Posts" EntitySet="Posts" />
     </AssociationSet>
-    <AssociationSet Name="FK__SystemUse__userT__72C60C4A" Association="Self.FK__SystemUse__userT__72C60C4A">
+    <AssociationSet Name="FK__SystemUse__userT__37703C52" Association="Self.FK__SystemUse__userT__37703C52">
       <End Role="UserType" EntitySet="UserType" />
       <End Role="SystemUsers" EntitySet="SystemUsers" />
     </AssociationSet>

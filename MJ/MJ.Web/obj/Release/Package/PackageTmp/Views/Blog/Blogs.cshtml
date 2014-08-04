@@ -1,4 +1,5 @@
 ﻿@model MJ.Web.Models.Post
+@using System.Diagnostics
 @using PagedList.Mvc;
 
 <div>
@@ -19,16 +20,18 @@
                         
                         @if (item.PostImage == "")
                         {
-                            <div style="margin-top: 10px"></div>
+                            <div style="margin-top: -20px"></div>
                         }
                         else
                         {
                             @*<img style="width: 740px; height: 342px" alt="" src="http://localhost:4157/PostImages/@Html.DisplayFor(p=> item.PostImage)">*@
                             @*<img style="width: 740px; height: 342px" alt="" src="http://localhost:4157/PostImages/@Html.DisplayFor(p=> item.PostImage)" />*@
-                            <img style="width: 740px; height: 342px" alt="" src="http://admin.mjlastimosa.com//PostImages/@Html.DisplayFor(p=> item.PostImage)" />
+                            <img style="width: 740px; height: 342px" alt="" src="http://admin.mjlastimosa.com/PostImages/@Html.DisplayFor(p=> item.PostImage)" />
                         }   
                         <p class="text-justify">
-                            @Html.DisplayFor(p=> item.PostText)
+                            <div class="readmore">
+                                @Html.DisplayFor(p => item.PostText)
+                            </div>                           
                         </p>
                     </li>
                 </ul>
@@ -41,9 +44,23 @@
 <div>
     <div class="pager">
         @Html.PagedListPager(Model.PostList, page => Url.Action("Index", new RouteValueDictionary() {
-                            { "Page", page },}), PagedListRenderOptions.ClassicPlusFirstAndLast)
+            { "Page", page },}), PagedListRenderOptions.ClassicPlusFirstAndLast)
         <b style="color: black">
-            Page @(Model.PostList.Count < Model.PostList.PageNumber ? 0 : Model.PostList.PageNumber) of @Model.PostList.PageCount
+            @*Page 
+            @{
+                Debug.Assert(Model.PostList != null, "Model.PostList != null");
+            }
+            @(Model.PostList.Count < Model.PostList.PageNumber ? 0 : Model.PostList.PageNumber) of @Model.PostList.PageCount*@
         </b>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $('div.readmore').expander({
+            slicePoint: 100,
+            expandText: 'more',
+            userCollapseText: 'less'
+        });
+    });
+</script>
